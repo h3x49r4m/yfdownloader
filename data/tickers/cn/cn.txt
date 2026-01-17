@@ -1,0 +1,25 @@
+# Chinese Market Tickers - Index File
+# This file contains references to separate Chinese market ticker files.
+# Use the specific files for targeted downloads:
+
+# Chinese ADRs (US-listed companies)
+# File: cn_adrs.txt
+# Contains: BABA, JD, BIDU, PDD, NIO, XPEV, LI, TME, NTES, BILI, etc.
+
+# Hong Kong Listed Chinese Companies
+# File: cn_hk.txt  
+# Contains: 0700.HK, 09988.HK, 03690.HK, etc.
+
+# Shanghai Stock Exchange (A-shares)
+# File: cn_shanghai.txt
+# Contains: 600519.SS, 601318.SS, 600036.SS, etc.
+
+# Shenzhen Stock Exchange (A-shares)
+# File: cn_shenzhen.txt
+# Contains: 000001.SZ, 000002.SZ, 002415.SZ, etc.
+
+# Usage Examples:
+# yfdownloader download --file data/tickers/cn_adrs.txt --days 365
+# yfdownloader download --file data/tickers/cn_hk.txt --days 365
+# yfdownloader download --file data/tickers/cn_shanghai.txt --days 365
+# yfdownloader download --file data/tickers/cn_shenzhen.txt --days 365
