@@ -48,7 +48,9 @@ class ParallelDownloader:
         ticker: str,
         start_date: str,
         end_date: str,
-        session: aiohttp.ClientSession
+        session: aiohttp.ClientSession,
+        period: Optional[str] = None,
+        auto_adjust: bool = True
     ) -> Optional[pd.DataFrame]:
         """
         Download data for a single ticker with retry logic
@@ -58,28 +60,43 @@ class ParallelDownloader:
             start_date: Start date in YYYY-MM-DD format
             end_date: End date in YYYY-MM-DD format
             session: aiohttp session
+            period: Period parameter (e.g., "max", "1y", "5y") - if provided, ignores start/end dates
             
         Returns:
             DataFrame with OHLCV data or None if failed
         """
+        # Extract ticker symbol for display
+        ticker_parts = ticker.split(',')
+        ticker_symbol = ticker_parts[0].strip()
+        ticker_name = ticker_parts[1].strip() if len(ticker_parts) > 1 else ""
+        
         async with self.semaphore:
             for attempt in range(self.retry_attempts):
                 try:
                     # Use yfinance to download data
-                    stock = yf.Ticker(ticker)
-                    data = stock.history(
-                        start=start_date,
-                        end=end_date,
-                        auto_adjust=True,
-                        prepost=False
-                    )
+                    stock = yf.Ticker(ticker_symbol)
+                    
+                    # Use period if provided, otherwise use start/end dates
+                    if period:
+                        data = stock.history(
+                            period=period,
+                            auto_adjust=auto_adjust,
+                            prepost=False
+                        )
+                    else:
+                        data = stock.history(
+                            start=start_date,
+                            end=end_date,
+                            auto_adjust=auto_adjust,
+                            prepost=False
+                        )
                     
                     if data.empty:
-                        logger.warning(f"No data found for ticker: {ticker}")
+                        logger.warning(f"No data found for ticker: {ticker_symbol} ({ticker_name})")
                         return None
                     
-                    # Add ticker column
-                    data['ticker'] = ticker
+                    # Add ticker column - use only the ticker symbol
+                    data['ticker'] = ticker_parts[0].strip()
                     data.reset_index(inplace=True)
                     
                     # Rename columns to standard format
@@ -94,14 +111,25 @@ class ParallelDownloader:
                         'Stock Splits': 'stock_splits'
                     }, inplace=True)
                     
+                    # Format numeric columns for better readability
+                    numeric_columns = ['open', 'high', 'low', 'close']
+                    for col in numeric_columns:
+                        if col in data.columns:
+                            data[col] = data[col].round(4)
+                    
+                    # Format date column to remove time component if present
+                    if 'date' in data.columns:
+                        data['date'] = pd.to_datetime(data['date']).dt.strftime('%Y-%m-%d')
+                    
                     return data
                     
                 except Exception as e:
-                    logger.warning(f"Attempt {attempt + 1} failed for {ticker}: {str(e)}")
+                    display_name = f"{ticker_symbol} ({ticker_name})" if ticker_name else ticker_symbol
+                    logger.warning(f"Attempt {attempt + 1} failed for {display_name}: {str(e)}")
                     if attempt < self.retry_attempts - 1:
                         await asyncio.sleep(self.retry_delay * (2 ** attempt))
                     else:
-                        logger.error(f"Failed to download data for {ticker} after {self.retry_attempts} attempts")
+                        logger.error(f"Failed to download data for {display_name} after {self.retry_attempts} attempts")
                         return None
     
     async def download_tickers(
@@ -110,7 +138,9 @@ class ParallelDownloader:
         start_date: str,
         end_date: str,
         output_dir: str = "data/downloads",
-        output_format: str = "csv"
+        output_format: str = "csv",
+        period: Optional[str] = None,
+        auto_adjust: bool = True
     ) -> Dict[str, Union[int, List[str]]]:
         """
         Download data for multiple tickers in parallel
@@ -139,19 +169,25 @@ class ParallelDownloader:
             # Create tasks for all tickers
             tasks = []
             for ticker in tickers:
-                task = self.download_ticker(ticker, start_date, end_date, session)
-                tasks.append((ticker, task))
+                task = self.download_ticker(ticker, start_date, end_date, session, period, auto_adjust)
+                # Extract ticker symbol for filename
+                ticker_symbol = ticker.split(',')[0].strip() if ',' in ticker else ticker
+                tasks.append((ticker, task, ticker_symbol))
             
             # Execute tasks and save results
             successful = []
             failed = []
             
-            for ticker, task in tasks:
+            for ticker, task, ticker_symbol in tasks:
                 try:
                     data = await task
                     if data is not None and not data.empty:
                         # Save data based on format
-                        filename = f"{ticker}_{start_date}_{end_date}.{output_format}"
+                        adjustment_suffix = "adj" if auto_adjust else "raw"
+                        if period:
+                            filename = f"{ticker_symbol}_{period}_{adjustment_suffix}.{output_format}"
+                        else:
+                            filename = f"{ticker_symbol}_{start_date}_{end_date}_{adjustment_suffix}.{output_format}"
                         filepath = Path(output_dir) / filename
                         
                         if output_format == "csv":
@@ -186,7 +222,9 @@ class ParallelDownloader:
         start_date: str,
         end_date: str,
         output_dir: str = "data/downloads",
-        output_format: str = "csv"
+        output_format: str = "csv",
+        period: Optional[str] = None,
+        auto_adjust: bool = True
     ) -> Dict[str, Union[int, List[str]]]:
         """
         Synchronous wrapper for async download
@@ -197,6 +235,7 @@ class ParallelDownloader:
             end_date: End date in YYYY-MM-DD format
             output_dir: Directory to save downloaded data
             output_format: Output format (csv, parquet, json)
+            period: Period parameter (e.g., "max", "1y", "5y") - if provided, ignores start/end dates
             
         Returns:
             Dictionary with download statistics
@@ -207,7 +246,9 @@ class ParallelDownloader:
                 start_date=start_date,
                 end_date=end_date,
                 output_dir=output_dir,
-                output_format=output_format
+                output_format=output_format,
+                period=period,
+                auto_adjust=auto_adjust
             )
         )
     
@@ -242,7 +283,16 @@ def load_tickers_from_file(filepath: str) -> List[str]:
     """
     try:
         with open(filepath, 'r') as f:
-            tickers = [line.strip() for line in f if line.strip()]
+            tickers = []
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):  # Skip empty lines and comments
+                    # Handle ticker,name format - extract only the ticker part
+                    if ',' in line:
+                        ticker = line.split(',')[0].strip()
+                    else:
+                        ticker = line
+                    tickers.append(ticker)
         return tickers
     except Exception as e:
         logger.error(f"Error loading tickers from {filepath}: {str(e)}")

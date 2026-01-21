@@ -1,103 +1,103 @@
 # Hong Kong Listed Chinese Companies
-0700.HK
-09988.HK
-03690.HK
-00241.HK
-01810.HK
-00941.HK
-01093.HK
-00202.HK
-02318.HK
-02020.HK
-00388.HK
-01299.HK
-00981.HK
-02628.HK
-02269.HK
-02382.HK
-00857.HK
-01816.HK
-00386.HK
-02007.HK
-01177.HK
-01109.HK
-01918.HK
-00267.HK
-00316.HK
-01024.HK
-06066.HK
-09961.HK
-02015.HK
-01171.HK
-01833.HK
-00175.HK
-00836.HK
-02600.HK
-01157.HK
-02331.HK
-01044.HK
-01211.HK
-00522.HK
-02899.HK
-09992.HK
-01093.HK
-02313.HK
-01810.HK
-02202.HK
-02318.HK
-00390.HK
-01177.HK
-02018.HK
-01171.HK
-02382.HK
-00857.HK
-01816.HK
-00386.HK
-02007.HK
-01299.HK
-00981.HK
-02628.HK
-02269.HK
-02382.HK
-00857.HK
-01816.HK
-00386.HK
-02007.HK
-01177.HK
-01109.HK
-01918.HK
-00267.HK
-00316.HK
-01024.HK
-06066.HK
-09961.HK
-02015.HK
-01171.HK
-01833.HK
-00175.HK
-00836.HK
-02600.HK
-01157.HK
-02331.HK
-01044.HK
-01211.HK
-00522.HK
-02899.HK
-09992.HK
-01093.HK
-02313.HK
-01810.HK
-02202.HK
-02318.HK
-00390.HK
-01177.HK
-02018.HK
-01171.HK
-02382.HK
-00857.HK
-01816.HK
-00386.HK
-02007.HK
+0700.HK,Tencent Holdings Limited
+09988.HK,Alibaba Group Holding Limited
+03690.HK,Meituan
+00241.HK,Alibaba Health Information Technology Limited
+01810.HK,Xiaomi Corporation
+00941.HK,China Mobile Limited
+01093.HK,China Railway Construction Corporation Limited
+00202.HK,China Merchants Bank Co., Ltd.
+02318.HK,China Ping An Insurance (Group) Company of China Ltd.
+02020.HK,Anhui Conch Cement Company Limited
+00388.HK,Hong Kong Exchanges and Clearing Limited
+01299.HK,Friends of Nature Development Co Ltd
+00981.HK,Semiconductor Manufacturing International Corporation
+02628.HK,China Life Insurance Company Limited
+02269.HK,China Railway Group Limited
+02382.HK,Sinopec Shanghai Petrochemical Company Limited
+00857.HK,PetroChina Co Ltd
+01816.HK,Zhongsheng Group Holdings Limited
+00386.HK,Sinopec Kantons Holdings Limited
+02007.HK,Country Garden Holdings Company Limited
+01177.HK,Sino Biopharmaceutical Limited
+01109.HK,China Resources Beer (Holdings) Company Limited
+01918.HK,China Resources Cement Holdings Limited
+00267.HK,China Telecom Corporation Limited
+00316.HK,Oriental Land Company Limited
+01024.HK,China Shenhua Energy Company Limited
+06066.HK,CNOOC Limited
+09961.HK,Trip.com Group Limited
+02015.HK,Citic Securities Co Ltd
+01171.HK,China Resources Land Limited
+01833.HK,China Vanke Co Ltd
+00175.HK,Geely Automobile Holdings Limited
+00836.HK,China Resources Power Holdings Company Limited
+02600.HK,China Oilfield Services Limited
+01157.HK,Sinopec Engineering Group Co Ltd
+02331.HK,Lyka Labs Limited
+01044.HK,Sino-Ocean Group Holdings Limited
+01211.HK,BYD Company Limited
+00522.HK,China Machinery Engineering Corporation
+02899.HK,Zhejiang Expressway Co Ltd
+09992.HK,NetEase Inc
+01093.HK,China Railway Construction Corporation Limited
+02313.HK,Shimao Property Holdings Limited
+01810.HK,Xiaomi Corporation
+02202.HK,China Aoyuan Group Limited
+02318.HK,China Ping An Insurance (Group) Company of China Ltd.
+00390.HK,China Railway Signal & Communication Corporation Limited
+01177.HK,Sino Biopharmaceutical Limited
+02018.HK,AAC Technologies Holdings Inc.
+01171.HK,China Resources Land Limited
+02382.HK,Sinopec Shanghai Petrochemical Company Limited
+00857.HK,PetroChina Co Ltd
+01816.HK,Zhongsheng Group Holdings Limited
+00386.HK,Sinopec Kantons Holdings Limited
+02007.HK,Country Garden Holdings Company Limited
+01299.HK,Friends of Nature Development Co Ltd
+00981.HK,Semiconductor Manufacturing International Corporation
+02628.HK,China Life Insurance Company Limited
+02269.HK,China Railway Group Limited
+02382.HK,Sinopec Shanghai Petrochemical Company Limited
+00857.HK,PetroChina Co Ltd
+01816.HK,Zhongsheng Group Holdings Limited
+00386.HK,Sinopec Kantons Holdings Limited
+02007.HK,Country Garden Holdings Company Limited
+01177.HK,Sino Biopharmaceutical Limited
+01109.HK,China Resources Beer (Holdings) Company Limited
+01918.HK,China Resources Cement Holdings Limited
+00267.HK,China Telecom Corporation Limited
+00316.HK,Oriental Land Company Limited
+01024.HK,China Shenhua Energy Company Limited
+06066.HK,CNOOC Limited
+09961.HK,Trip.com Group Limited
+02015.HK,Citic Securities Co Ltd
+01171.HK,China Resources Land Limited
+01833.HK,China Vanke Co Ltd
+00175.HK,Geely Automobile Holdings Limited
+00836.HK,China Resources Power Holdings Company Limited
+02600.HK,China Oilfield Services Limited
+01157.HK,Sinopec Engineering Group Co Ltd
+02331.HK,Lyka Labs Limited
+01044.HK,Sino-Ocean Group Holdings Limited
+01211.HK,BYD Company Limited
+00522.HK,China Machinery Engineering Corporation
+02899.HK,Zhejiang Expressway Co Ltd
+09992.HK,NetEase Inc
+01093.HK,China Railway Construction Corporation Limited
+02313.HK,Shimao Property Holdings Limited
+01810.HK,Xiaomi Corporation
+02202.HK,China Aoyuan Group Limited
+02318.HK,China Ping An Insurance (Group) Company of China Ltd.
+00390.HK,China Railway Signal & Communication Corporation Limited
+01177.HK,Sino Biopharmaceutical Limited
+02018.HK,AAC Technologies Holdings Inc.
+01171.HK,China Resources Land Limited
+02382.HK,Sinopec Shanghai Petrochemical Company Limited
+00857.HK,PetroChina Co Ltd
+01816.HK,Zhongsheng Group Holdings Limited
+00386.HK,Sinopec Kantons Holdings Limited
+02007.HK,Country Garden Holdings Company Limited
 01299.HK
 00981.HK
 02628.HK

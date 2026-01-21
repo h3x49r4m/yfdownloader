@@ -1,48 +1,48 @@
 # Chinese ADRs (US-listed)
-BABA
-JD
-BIDU
-PDD
-NIO
-XPEV
-LI
-TME
-NTES
-BILI
-YY
-IQ
-HUYA
-DOYU
-VIPS
-JOYY
-ZG
-BZUN
-NCTY
-SFUN
-WUBA
-YIN
-RENN
-DADA
-MOMO
-SINA
-SOHU
-CTRP
-TCOM
-TOUR
-CANG
-GDS
-EDU
-TAL
-NEW
-HNP
-CEA
-ZTO
-BEST
-QFIN
-LX
-LU
-FUTU
-HIHO
-JMU
-QTS
-AHC
+BABA,Alibaba Group Holding Limited
+JD,JD.com Inc.
+BIDU,Baidu Inc.
+PDD,PDD Holdings Inc.
+NIO,NIO Inc.
+XPEV,XPeng Inc.
+LI,Li Auto Inc.
+TME,Tencent Music Entertainment Group
+NTES,NetEase Inc.
+BILI,Bilibili Inc.
+YY,JOYY Inc.
+IQ,iQIYI Inc.
+HUYA,Huya Inc.
+DOYU,DouYu International Holdings Ltd.
+VIPS,Vipshop Holdings Ltd.
+JOYY,JOYY Inc.
+ZG,Zhihu Inc.
+BZUN,Baozun Inc.
+NCTY,The9 Ltd.
+SFUN,SouFun Holdings Ltd.
+WUBA,58.com Inc.
+YIN,Yineng Smart Tech Co Ltd.
+RENN,Renren Inc.
+DADA,Dada Nexus Ltd.
+MOMO,Momo Inc.
+SINA,Sina Corporation
+SOHU,Sohu.com Inc.
+CTRP,Ctrip.com International Ltd.
+TCOM,Trip.com Group Limited
+TOUR,Tuniu Corporation
+CANG,Cangzhou Mingzhu Pharmaceutical Co Ltd
+GDS,GDS Holdings Limited
+EDU,New Oriental Education & Technology Group Inc.
+TAL,TAL Education Group
+NEW,New Oriental Education & Technology Group Inc.
+HNP,China National Petroleum Corporation
+CEA,China Eastern Airlines Corporation Ltd.
+ZTO,ZTO Express Inc.
+BEST,Best Inc.
+QFIN,Qifu Technology Inc.
+LX,Luxin High-tech Co Ltd.
+LU,Lufax Holding Ltd
+FUTU,Futu Holdings Ltd.
+HIHO,HiHo Entertainment Limited
+JMU,Jiumuwang Co Ltd
+QTS,Qutoutiao Inc.
+AHC,American Healthcare REIT Inc.

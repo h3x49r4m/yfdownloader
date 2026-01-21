@@ -1,67 +1,67 @@
-SAP
-SIE
-ALV
-BAS
-BMW
-VOW3
-ADS
-BEI
-DPW
-1COV
-EOAN
-RWE
-CON
-HEN3
-FRE
-MRK
-VNA
-LHA
-HEI
-DB1
-BAYN
-TKA
-MUV2
-DAI
-PSM
-IFX
-LIN
-BNN
-HNR1
-MTX
-SY1
-EVD
-O2D
-KRN
-SDF
-DTE
-RHM
-FME
-HKG
-BOSS
-DEQ
-DEZ
-DUE
-FRA
-GXI
-HLE
-KBC
-LEG
-LXS
-MOR
-NDA
-PFV
-PUM
-QIA
-RHK
-RVT
-SAX
-SGL
-SHL
-SIX2
-TEG
-TLX
-UTDI
-VOS
-WAF
-WDI
-ZAL
+SAP,SAP SE
+SIE,Siemens AG
+ALV,Allianz SE
+BAS,BASF SE
+BMW,BMW AG
+VOW3,Volkswagen AG
+ADS,Adidas AG
+BEI,Beiersdorf AG
+DPW,Deutsche Post AG
+1COV,Covestro AG
+EOAN,E.ON SE
+RWE,RWE AG
+CON,Continental AG
+HEN3,Henkel AG
+FRE,Fresenius SE & Co. KGaA
+MRK,Merck KGaA
+VNA,Vonovia SE
+LHA,Deutsche Lufthansa AG
+HEI,HeidelbergCement AG
+DB1,Deutsche Boerse AG
+BAYN,Bayer AG
+TKA,Thyssenkrupp AG
+MUV2,Munich Re AG
+DAI,Daimler AG
+PSM,ProSiebenSat.1 Media SE
+IFX,Infineon Technologies AG
+LIN,Linde plc
+BNN,Brenntag AG
+HNR1,Hannover Rueck SE
+MTX,Metro AG
+SY1,Sydbank A/S
+EVD,Evotec AG
+O2D,Telefonica Deutschland Holding AG
+KRN,Krones AG
+SDF,Schaeffler AG
+DTE,Deutsche Telekom AG
+RHM,Rheinmetall AG
+FME,Fresenius Medical Care AG & Co. KGaA
+HKG,Hannover Rueck SE
+BOSS,Hugo Boss AG
+DEQ,Deutsche EuroShop AG
+DEZ,Deutsche Wohnen SE
+DUE,Duewag AG
+FGA,Fraport AG
+GXI,Gildea Co Ltd
+HLE,Hannover Leasing SE
+KBC,KBC Group NV
+LEG,Leg Immobilien AG
+LXS,Lanxess AG
+MOR,Moravian Library
+NDA,Norddeutsche Landesbank Girozentrale
+PFV,Pfeiffer Vacuum AG
+PUM,Puma SE
+QIA,QIAGEN N.V.
+RHK,Rheinhold & Mahla AG
+RVT,Rovio Entertainment Oyj
+SAX,Saxo Bank A/S
+SGL,SGL Carbon SE
+SHL,Shanghai International Port Group Co Ltd
+SIX2,SIX Group AG
+TEG,TEG AG
+TLX,TLX Immobilien AG
+UTDI,UTDI AG
+VOS,Vossloh AG
+WAF,Wacker Chemie AG
+WDI,Wienerberger AG
+ZAL,Zalando SE

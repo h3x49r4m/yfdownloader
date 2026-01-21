@@ -1,105 +1,105 @@
-SHEL
-HSBA
-BP
-RIO
-GSK
-AZN
-DGE
-ULVR
-REL
-PRU
-BT.A
-VOD
-TUI
-BA.
-IMB
-MNG
-SMDS
-SSE
-NG
-CNA
-LGEN
-RR.
-AHT
-ABF
-LAND
-SGRO
-EXPN
-RKT
-MKS
-BRBY
-CPG
-FRAS
-JD.
-DCC
-CRDA
-HLN
-SMIN
-ANTO
-SAB
-POLY
-BME
-WEIR
-TUI
-III
-ITV
-PHNX
-SKG
-RMV
-WPP
-SMT
-SPX
-HWDN
-FCDO
-GLEN
-EVN
-EDV
-RIO
-S32
-AAL
-ANTO
-BHP
-BP
-CNA
-DCC
-DGE
-ENT
-EXPN
-EZJ
-FERG
-GLEN
-GSK
-HSBA
-IHG
-IMB
-ITV
-JD.
-KGF
-LAND
-LGEN
-LLOY
-MKS
-MNG
-NG
-OCDO
-PHNX
-PRU
-PSN
-RB.
-REL
-RKT
-RTO
-SAB
-SBRY
-SHEL
-SMDS
-SMIN
-SSE
-STAN
-SVT
-TUI
-TW.
-ULVR
-VOD
-WTB
-WPP
+SHEL,Shell plc
+HSBA,HSBC Holdings plc
+BP,BP plc
+RIO,Rio Tinto plc
+GSK,GSK plc
+AZN,AstraZeneca plc
+DGE,Diageo plc
+ULVR,Unilever plc
+REL,RELX plc
+PRU,Prudential plc
+BT.A,BT Group plc
+VOD,Vodafone Group plc
+TUI,TUI AG
+BA.,Babcock International Group plc
+IMB,IMI plc
+MNG,Mondi plc
+SMDS,Smiths Group plc
+SSE,SSE plc
+NG,National Grid plc
+CNA,Centrauda Properties plc
+LGEN,Legal & General Group plc
+RR.,Rolls-Royce Holdings plc
+AHT,Ashmore Group plc
+ABF,Associated British Foods plc
+LAND,Land Securities Group plc
+SGRO,Segro plc
+EXPN,Experian plc
+RKT,Rightmove plc
+MKS,Marks & Spencer Group plc
+BRBY,Burberry Group plc
+CPG,Compass Group plc
+FRAS,Frasers Group plc
+JD.,JD Sports Fashion plc
+DCC,DCC plc
+CRDA,Crest Nicholson plc
+HLN,Haleon plc
+SMIN,Smith & Nephew plc
+ANTO,Antofagasta plc
+SAB,SABMiller plc
+POLY,Polymer Group plc
+BME,B&M European Value Retail S.A.
+WEIR,Weir Group plc
+TUI,TUI AG
+III,3i Group plc
+ITV,ITV plc
+PHNX,Phoenix Group Holdings plc
+SKG,Sky Group plc
+RMV,RM plc
+WPP,WPP plc
+SMT,Smiths Group plc
+SPX,Spirax-Sarco Engineering plc
+HWDN,Hawkins plc
+FCDO,Fidelity China Special Situations plc
+GLEN,Glencore plc
+EVN,EVRAZ plc
+EDV,Edenville Energy plc
+RIO,Rio Tinto plc
+S32,South32 Ltd
+AAL,Anglo American plc
+ANTO,Antofagasta plc
+BHP,BHP Group plc
+BP,BP plc
+CNA,Centrauda Properties plc
+DCC,DCC plc
+DGE,Diageo plc
+ENT,Entain plc
+EXPN,Experian plc
+EZJ,EasyJet plc
+FERG,Ferguson plc
+GLEN,Glencore plc
+GSK,GSK plc
+HSBA,HSBC Holdings plc
+IHG,InterContinental Hotels Group plc
+IMB,IMI plc
+ITV,ITV plc
+JD.,JD Sports Fashion plc
+KGF,Kingfisher plc
+LAND,Land Securities Group plc
+LGEN,Legal & General Group plc
+LLOY,Lloyds Banking Group plc
+MKS,Marks & Spencer Group plc
+MNG,Mondi plc
+NG,National Grid plc
+OCDO,Ocado Group plc
+PHNX,Phoenix Group Holdings plc
+PRU,Prudential plc
+PSN,Persimmon plc
+RB.,Reckitt Benckiser Group plc
+REL,RELX plc
+RKT,Rightmove plc
+RTO,Rentokil Initial plc
+SAB,SABMiller plc
+SBRY,Sainsbury's plc
+SHEL,Shell plc
+SMDS,Smiths Group plc
+SMIN,Smith & Nephew plc
+SSE,SSE plc
+STAN,Standard Chartered plc
+SVT,Savills plc
+TUI,TUI AG
+TW.,Taylor Wimpey plc
+ULVR,Unilever plc
+VOD,Vodafone Group plc
+WTB,Witan Investment Trust plc
+WPP,WPP plc

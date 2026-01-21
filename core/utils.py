@@ -302,7 +302,7 @@ def get_available_countries(data_dir: str = "data/tickers") -> List[str]:
 
 def estimate_download_time(
     num_tickers: int,
-    avg_time_per_ticker: float = 0.5,
+    avg_time_per_ticker: float = 3.0,
     max_concurrent: int = 50
 ) -> float:
     """
@@ -310,17 +310,21 @@ def estimate_download_time(
     
     Args:
         num_tickers: Number of tickers to download
-        avg_time_per_ticker: Average time per ticker in seconds
+        avg_time_per_ticker: Average time per ticker in seconds (conservative estimate)
         max_concurrent: Maximum concurrent downloads
         
     Returns:
         Estimated time in seconds
     """
-    if num_tickers <= max_concurrent:
-        return avg_time_per_ticker
-    else:
-        batches = num_tickers / max_concurrent
-        return batches * avg_time_per_ticker
+    # Calculate number of batches needed
+    batches = (num_tickers + max_concurrent - 1) // max_concurrent
+    
+    # Each batch takes approximately avg_time_per_ticker seconds
+    # Add buffer time for network delays and API rate limits
+    buffer_factor = 1.5  # 50% buffer for delays
+    total_time = batches * avg_time_per_ticker * buffer_factor
+    
+    return total_time
 
 
 def format_time(seconds: float) -> str:

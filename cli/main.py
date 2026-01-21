@@ -48,6 +48,7 @@ def cli(ctx, log_level, log_file):
 @click.option('--start-date', help='Start date in YYYY-MM-DD format')
 @click.option('--end-date', help='End date in YYYY-MM-DD format')
 @click.option('--days', default=365, help='Number of days to look back (default: 365)')
+@click.option('--period', help='Period to download (e.g., max, 1y, 5y, 10y) - overrides start/end dates')
 @click.option('--output-dir', default='data/downloads', help='Output directory (default: data/downloads)')
 @click.option('--format', 'output_format', default='csv', type=click.Choice(['csv', 'parquet', 'json']), help='Output format')
 @click.option('--concurrency', default=50, help='Maximum concurrent downloads (default: 50)')
@@ -55,9 +56,10 @@ def cli(ctx, log_level, log_file):
 @click.option('--timeout', default=30, help='Request timeout in seconds (default: 30)')
 @click.option('--add-indicators', is_flag=True, help='Add technical indicators')
 @click.option('--validate', is_flag=True, help='Validate and clean data')
+@click.option('--no-adjust', is_flag=True, default=False, help='Download unadjusted (raw) prices instead of adjusted prices')
 @click.pass_context
-def download(ctx, tickers, ticker_file, country, countries, start_date, end_date, days, 
-             output_dir, output_format, concurrency, retry, timeout, add_indicators, validate):
+def download(ctx, tickers, ticker_file, country, countries, start_date, end_date, days, period,
+             output_dir, output_format, concurrency, retry, timeout, add_indicators, validate, no_adjust):
     """Download OHLCV data for specified tickers"""
     
     # Validate and parse tickers
@@ -96,25 +98,33 @@ def download(ctx, tickers, ticker_file, country, countries, start_date, end_date
     ticker_list = list(set(ticker_list))
     click.echo(f"Downloading data for {len(ticker_list)} tickers")
     
-    # Validate and set date range
-    if start_date and not validate_date_format(start_date):
-        click.echo(f"Error: Invalid start date format: {start_date}. Use YYYY-MM-DD")
-        sys.exit(1)
-    
-    if end_date and not validate_date_format(end_date):
-        click.echo(f"Error: Invalid end date format: {end_date}. Use YYYY-MM-DD")
-        sys.exit(1)
-    
-    if start_date and end_date and not validate_date_range(start_date, end_date):
-        click.echo(f"Error: Invalid date range. Start date must be before end date.")
-        sys.exit(1)
-    
-    if not start_date or not end_date:
-        default_start, default_end = get_default_date_range(days)
-        start_date = start_date or default_start
-        end_date = end_date or default_end
-    
-    click.echo(f"Date range: {start_date} to {end_date}")
+    # Handle period parameter
+    if period:
+        if period not in ['max', '1d', '5d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max']:
+            click.echo(f"Warning: Unusual period value: {period}. Common values: max, 1y, 5y, 10y")
+        click.echo(f"Downloading maximum available history (period: {period})")
+        start_date = None  # Not used when period is specified
+        end_date = None    # Not used when period is specified
+    else:
+        # Validate and set date range
+        if start_date and not validate_date_format(start_date):
+            click.echo(f"Error: Invalid start date format: {start_date}. Use YYYY-MM-DD")
+            sys.exit(1)
+        
+        if end_date and not validate_date_format(end_date):
+            click.echo(f"Error: Invalid end date format: {end_date}. Use YYYY-MM-DD")
+            sys.exit(1)
+        
+        if start_date and end_date and not validate_date_range(start_date, end_date):
+            click.echo(f"Error: Invalid date range. Start date must be before end date.")
+            sys.exit(1)
+        
+        if not start_date or not end_date:
+            default_start, default_end = get_default_date_range(days)
+            start_date = start_date or default_start
+            end_date = end_date or default_end
+        
+        click.echo(f"Date range: {start_date} to {end_date}")
     
     # Create output directory
     if not create_directory(output_dir):
@@ -123,7 +133,8 @@ def download(ctx, tickers, ticker_file, country, countries, start_date, end_date
     
     # Estimate download time
     estimated_time = estimate_download_time(len(ticker_list), max_concurrent=concurrency)
-    click.echo(f"Estimated download time: {format_time(estimated_time)}")
+    click.echo(f"Estimated download time: {format_time(estimated_time)} (concurrency: {concurrency})")
+    click.echo("Note: Actual time may vary based on network conditions and API rate limits")
     
     # Initialize downloader
     downloader = ParallelDownloader(
@@ -134,12 +145,15 @@ def download(ctx, tickers, ticker_file, country, countries, start_date, end_date
     
     # Download data
     click.echo("Starting download...")
+    auto_adjust = not no_adjust  # Convert no_adjust flag to auto_adjust boolean
     results = downloader.download_sync(
         tickers=ticker_list,
         start_date=start_date,
         end_date=end_date,
         output_dir=output_dir,
-        output_format=output_format
+        output_format=output_format,
+        period=period,
+        auto_adjust=auto_adjust
     )
     
     # Process data if requested
@@ -183,7 +197,13 @@ def download(ctx, tickers, ticker_file, country, countries, start_date, end_date
     click.echo(f"Failed: {results['failed']}")
     
     if results['failed_tickers']:
-        click.echo(f"\nFailed tickers: {', '.join(results['failed_tickers'])}")
+        click.echo(f"\nFailed tickers ({len(results['failed_tickers'])}):")
+        for ticker in results['failed_tickers']:
+            if ',' in ticker:
+                parts = ticker.split(',', 1)
+                click.echo(f"  - {parts[0].strip()} ({parts[1].strip()})")
+            else:
+                click.echo(f"  - {ticker}")
 
 
 @cli.command()
